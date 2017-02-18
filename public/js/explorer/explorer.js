@@ -65,13 +65,13 @@ class Explorer {
      * returned list of files and directories
      * @param {String[]} obj - List of files and directories
      */
-    buildItems(obj) {
+    buildItems(fileItems) {
         let self = this;
         this.directoryElement.innerHTML = '';
 
-        for(let i = 0; i < obj.length; i++) {
+        for(let i = 0; i < fileItems.length; i++) {
             let item = document.createElement('div');
-            item.innerHTML = obj[i];
+            item.innerHTML = fileItems[i].Name;
             item.addEventListener('click', () => {
                 self.goDownDirectory(obj[i]);
             });

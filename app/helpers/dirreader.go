@@ -6,6 +6,12 @@ import (
 	"io/ioutil"
 )
 
+type FileItem struct {
+	IsDir bool
+	Name  string
+	Size  int64
+}
+
 // ListFiles - Return a list of files and dirs
 func ListFiles(dir string) string {
 	files, _ := ioutil.ReadDir(dir)
@@ -19,9 +25,10 @@ func ListFiles(dir string) string {
 
 func ListFilesJson(dir string) []byte {
 	files, _ := ioutil.ReadDir(dir)
-	var list []string
+	list := []FileItem{}
 	for _, f := range files {
-		list = append(list, f.Name())
+		fItem := FileItem{f.IsDir(), f.Name(), f.Size()}
+		list = append(list, fItem)
 	}
 
 	jsonList, err := json.Marshal(list)
