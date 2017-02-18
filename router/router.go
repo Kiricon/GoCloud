@@ -1,14 +1,18 @@
 package router
 
 import (
+	"GoCloud/helpers"
 	"fmt"
 	"net/http"
+	"strconv"
 )
 
 // StartServer starts the server
 func StartServer() {
-	port := ":3000"
-	fmt.Println("GoCloud is running on port ", port)
+	config := helpers.Config()
+	port := ":" + strconv.Itoa(config.Port)
+	fmt.Println(port)
+	fmt.Println("GoCloud is running on port :", config.Port)
 	http.HandleFunc("/", mainHandler)
 	http.ListenAndServe(port, nil)
 
