@@ -1,4 +1,7 @@
+let currentDir = '';
+
 function getDirectory(dir) {
+    
     let xmlhttp = new XMLHttpRequest();
     xmlhttp.open('POST', '/directory/', true);
     xmlhttp.onreadystatechange = function() {
@@ -20,8 +23,9 @@ function getDirectory(dir) {
             }
         }
     };
-    let json = JSON.stringify({"Directory": dir});
+    let json = JSON.stringify({"Directory": currentDir + dir});
     xmlhttp.send(json);
+    currentDir += dir+'/';
 }
 
-getDirectory('');
+getDirectory(currentDir);
