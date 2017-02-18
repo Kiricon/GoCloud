@@ -12,6 +12,7 @@ class Explorer {
         this.currentDirElement = document.getElementById('currentDirectory');
         this.backButton = document.getElementById('backButton');
         this.listen();
+        this.updateDirPath();
     }
 
 
@@ -55,7 +56,7 @@ class Explorer {
     goDownDirectory(dir) {
         this.getDirectory(this.currentDir + dir);
         this.currentDir += dir+'/';
-        this.currentDirElement.innerHTML = this.currentDir;
+        this.updateDirPath();
     }
 
 
@@ -86,8 +87,16 @@ class Explorer {
         let arr = this.currentDir.split('/');
         arr.splice(arr.length-2, 1);
         this.currentDir = arr.join('/');
-        this.currentDirElement.innerHTML = this.currentDir;
         this.getDirectory(this.currentDir);
+        this.updateDirPath();
+    }
+
+
+    /**
+     * Method for updating the path directory displayed.
+     */
+    updateDirPath() {
+        this.currentDirElement.innerHTML = '~/' + this.currentDir;
     }
 }
 
