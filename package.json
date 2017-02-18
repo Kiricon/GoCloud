@@ -1,0 +1,23 @@
+{
+  "name": "gocloud",
+  "version": "1.0.0",
+  "description": "Go based cloud software",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kiricon/GoCloud.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kiricon/GoCloud/issues"
+  },
+  "homepage": "https://github.com/Kiricon/GoCloud#readme",
+  "devDependencies": {
+    "eslint": "^3.15.0",
+    "eslint-config-google": "^0.7.1"
+  }
+}
