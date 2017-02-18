@@ -7,7 +7,7 @@ html, body {
 }
 
 body {
-    background: #eee;
+    background:white;
 }
 
 #explorer {
@@ -28,12 +28,25 @@ body {
         overflow-y: auto;
         height: calc(100% - 30px);
 
-        div {
-            padding: 10px;
-            margin: 5px 0px;
+        .fileItem {
+            padding: 10px 5%;
             border-radius: 3px;
-            background: #888;
             cursor: pointer;
+            display: table;
+            border-bottom: solid 1px #eee;
+            width: 90%;
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+            .name  {
+                float: left;
+            }
+            .icon, .size {
+                float: right;
+            }
+        }
+
+        .fileItem:hover {
+            background: #eee;
         }
     }
 }

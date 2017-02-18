@@ -63,7 +63,7 @@ class Explorer {
     /**
      * Method to build HTML elements from
      * returned list of files and directories
-     * @param {String[]} obj - List of files and directories
+     * @param {FileItem[]} fileItems - List of files and directories
      */
     buildItems(fileItems) {
         let self = this;
@@ -71,10 +71,28 @@ class Explorer {
 
         for(let i = 0; i < fileItems.length; i++) {
             let item = document.createElement('div');
-            item.innerHTML = fileItems[i].Name;
-            item.addEventListener('click', () => {
-                self.goDownDirectory(obj[i]);
-            });
+            let fileItem = fileItems[i];
+            let fileString = '';
+
+            fileString += '<div class="name">'+fileItem.Name+'</div>';
+            let icon = fileItem.IsDir ? 'folder' : 'insert_drive_file';
+            fileString += '<div class="icon">';
+            fileString += '<i class="material-icons">'+icon+'</i>';
+            fileString += '</div>';
+
+            if(!fileItem.IsDir) {
+                fileString += '<div class="size">'+fileItem.Size+'</div>';
+            }
+
+
+
+            item.className = 'fileItem';
+            item.innerHTML = fileString;
+            if(fileItem.IsDir) {
+                item.addEventListener('click', () => {
+                    self.goDownDirectory(fileItem.Name);
+                });
+            }
             this.directoryElement.appendChild(item);
         }
     }
