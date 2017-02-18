@@ -60,9 +60,7 @@ gulp.task('watchjs', ['webpack'], function(done) {
 
 gulp.task('default', () => {
     browserSync.init({
-        server: {
-        baseDir: './public',
-        },
+        proxy: 'localhost:4000',
     });
 
     gulp.watch(paths.html).on('change', browserSync.reload);

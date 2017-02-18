@@ -1,7 +1,9 @@
 let currentDir = '';
-
+/**
+ * Get all listing from a directory
+ * @param {String} dir - subdirectory to search
+ */
 function getDirectory(dir) {
-    
     let xmlhttp = new XMLHttpRequest();
     xmlhttp.open('POST', '/directory/', true);
     xmlhttp.onreadystatechange = function() {
@@ -11,7 +13,7 @@ function getDirectory(dir) {
                 let directory = document.getElementById('directory');
                 directory.innerHTML = '';
 
-                for(let i = 0; i < obj.length; i++){
+                for(let i = 0; i < obj.length; i++) {
                     let item = document.createElement('div');
                     item.innerHTML = obj[i];
                     item.addEventListener('click', () => {
@@ -19,11 +21,10 @@ function getDirectory(dir) {
                     });
                     directory.appendChild(item);
                 }
-
             }
         }
     };
-    let json = JSON.stringify({"Directory": currentDir + dir});
+    let json = JSON.stringify({'Directory': currentDir + dir});
     xmlhttp.send(json);
     currentDir += dir+'/';
 }
