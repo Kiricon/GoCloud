@@ -1,8 +1,8 @@
 package router
 
 import (
-	"GoCloud/dirreader"
-	"GoCloud/helpers"
+	"GoCloud/app/dirreader"
+	"GoCloud/app/helpers"
 	"fmt"
 	"net/http"
 	"strconv"
@@ -15,7 +15,7 @@ func StartServer() {
 
 	port := ":" + strconv.Itoa(config.Port)
 	fmt.Println("GoCloud is running on port :", config.Port)
-	http.HandleFunc("/", mainHandler)
+	http.Handle("/", http.FileServer(http.Dir("public")))
 	http.ListenAndServe(port, nil)
 
 }

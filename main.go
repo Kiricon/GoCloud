@@ -1,7 +1,7 @@
 package main
 
 import (
-	"GoCloud/router"
+	"GoCloud/app/router"
 )
 
 func main() {
