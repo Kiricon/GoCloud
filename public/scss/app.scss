@@ -9,3 +9,17 @@ html, body {
 body {
     background: #eee;
 }
+
+#directory {
+    padding: 10px;
+    height: 50%;
+    overflow-y: auto;
+
+    div {
+        padding: 10px;
+        margin: 5px;
+        border-radius: 3px;
+        background: #888;
+        cursor: pointer;
+    }
+}
