@@ -17,6 +17,11 @@ body {
     
     #explorerOptions {
         height: 30px;
+        div {
+            float: left;
+            cursor: pointer;
+            margin: 0px 5px;
+        }
     }
 
     #directory {
