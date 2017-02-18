@@ -10,16 +10,25 @@ body {
     background: #eee;
 }
 
-#directory {
-    padding: 10px;
-    height: 50%;
-    overflow-y: auto;
+#explorer {
+    padding: 5% 10px;
+    height: 90%;
+    overflow:hidden;
+    
+    #explorerOptions {
+        height: 30px;
+    }
 
-    div {
-        padding: 10px;
-        margin: 5px;
-        border-radius: 3px;
-        background: #888;
-        cursor: pointer;
+    #directory {
+        overflow-y: auto;
+        height: calc(100% - 30px);
+
+        div {
+            padding: 10px;
+            margin: 5px 0px;
+            border-radius: 3px;
+            background: #888;
+            cursor: pointer;
+        }
     }
 }

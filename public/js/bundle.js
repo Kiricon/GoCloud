@@ -64,6 +64,8 @@
 	     */
 	    constructor() {
 	        this.currentDir = '';
+	        this.directoryElement = document.getElementById('directory');
+	        this.currentDirElement = document.getElementById('currentDirectory');
 	    }
 
 	    /**
@@ -85,6 +87,7 @@
 	        let json = JSON.stringify({'Directory': this.currentDir + dir});
 	        xmlhttp.send(json);
 	        this.currentDir += dir+'/';
+	        this.currentDirElement.innerHTML = this.currentDir;
 	    }
 
 
@@ -95,8 +98,7 @@
 	     */
 	    buildItems(obj) {
 	        let self = this;
-	        let directory = document.getElementById('directory');
-	        directory.innerHTML = '';
+	        this.directoryElement.innerHTML = '';
 
 	        for(let i = 0; i < obj.length; i++) {
 	            let item = document.createElement('div');
@@ -104,7 +106,7 @@
 	            item.addEventListener('click', () => {
 	                self.getDirectory(obj[i]);
 	            });
-	            directory.appendChild(item);
+	            this.directoryElement.appendChild(item);
 	        }
 	    }
 	}

@@ -1,1 +1,1 @@
-body,html{width:100%;height:100%;margin:0;padding:0;overflow:hidden}body{background:#eee}#directory{padding:10px;height:50%;overflow-y:auto}#directory div{padding:10px;margin:5px;border-radius:3px;background:#888;cursor:pointer}
+body,html{width:100%;height:100%;margin:0;padding:0;overflow:hidden}body{background:#eee}#explorer{padding:5% 10px;height:90%;overflow:hidden}#explorer #explorerOptions{height:30px}#explorer #directory{overflow-y:auto;height:calc(100% - 30px)}#explorer #directory div{padding:10px;margin:5px 0;border-radius:3px;background:#888;cursor:pointer}
