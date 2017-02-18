@@ -1,6 +1,8 @@
 package helpers
 
 import (
+	"encoding/json"
+	"fmt"
 	"io/ioutil"
 )
 
@@ -13,4 +15,20 @@ func ListFiles(dir string) string {
 	}
 
 	return listing
+}
+
+func ListFilesJson(dir string) []byte {
+	files, _ := ioutil.ReadDir(dir)
+	var list []string
+	for _, f := range files {
+		list = append(list, f.Name())
+	}
+
+	jsonList, err := json.Marshal(list)
+
+	if err != nil {
+		fmt.Println("Cannot create json")
+	}
+
+	return jsonList
 }
