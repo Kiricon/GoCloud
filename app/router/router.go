@@ -1,7 +1,6 @@
 package router
 
 import (
-	"GoCloud/app/dirreader"
 	"GoCloud/app/helpers"
 	"fmt"
 	"net/http"
@@ -22,5 +21,5 @@ func StartServer() {
 
 func mainHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	fmt.Fprintf(w, dirreader.ListFiles(config.RootDir))
+	fmt.Fprintf(w, helpers.ListFiles(config.RootDir))
 }

@@ -1,4 +1,4 @@
-package dirreader
+package helpers
 
 import (
 	"io/ioutil"
