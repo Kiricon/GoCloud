@@ -136,10 +136,7 @@
 	            let fileString = '';
 
 	            fileString += '<div class="name">'+fileItem.Name+'</div>';
-	            let icon = fileItem.IsDir ? 'folder' : 'insert_drive_file';
-	            fileString += '<div class="icon">';
-	            fileString += '<i class="material-icons">'+icon+'</i>';
-	            fileString += '</div>';
+	            fileString += this.buildIcon(fileItem);
 
 	            if(!fileItem.IsDir) {
 	                let sizeString = this.formatSizeUnits(fileItem.Size);
@@ -155,6 +152,30 @@
 	            }
 	            this.directoryElement.appendChild(item);
 	        }
+	    }
+
+
+	    /**
+	     * Method that builds the item's
+	     * icon html based on item
+	     * @param {FileItem} fileItem
+	     * @return {String} - Html string for icon
+	     */
+	    buildIcon(fileItem) {
+	        let iconString = '';
+	        let icon = fileItem.IsDir ? 'folder' : 'insert_drive_file';
+	        let arr = fileItem.Name.split('.');
+	        let ext = arr[arr.length-1].toLowerCase();
+
+	        if(ext == 'png' || ext == 'jpg' || ext == 'jpeg' || ext == 'svg') {
+	            iconString += '<img class="icon" src="/files/'+this.currentDir+fileItem.Name+'" />';
+	        }else {
+	            iconString += '<div class="icon">';
+	            iconString += '<i class="material-icons">'+icon+'</i>';
+	            iconString += '</div>';
+	        }
+
+	        return iconString;
 	    }
 
 
