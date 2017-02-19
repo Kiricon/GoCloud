@@ -108,7 +108,8 @@ class Explorer {
         let ext = arr[arr.length-1].toLowerCase();
 
         if(ext == 'png' || ext == 'jpg' || ext == 'jpeg' || ext == 'svg') {
-            iconString += '<img class="icon" src="/files/'+this.currentDir+fileItem.Name+'" />';
+            let path = this.currentDir+fileItem.Name;
+            iconString += '<img class="icon" src="/files/'+path+'" />';
         }else {
             iconString += '<div class="icon">';
             iconString += '<i class="material-icons">'+icon+'</i>';
