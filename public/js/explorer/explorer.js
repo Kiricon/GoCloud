@@ -68,7 +68,8 @@ class Explorer {
     buildItems(fileItems) {
         let self = this;
         this.directoryElement.innerHTML = '';
-
+        let itemClass = document.querySelector('#toggleView i').innerHTML;
+        itemClass = itemClass.split('_')[1];
         for(let i = 0; i < fileItems.length; i++) {
             let item = document.createElement('div');
             let fileItem = fileItems[i];
@@ -85,9 +86,7 @@ class Explorer {
                 fileString += '<div class="size">'+sizeString+'</div>';
             }
 
-
-
-            item.className = 'fileItem headline';
+            item.className = 'fileItem '+itemClass;
             item.innerHTML = fileString;
             if(fileItem.IsDir) {
                 item.addEventListener('click', () => {

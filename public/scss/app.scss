@@ -62,7 +62,7 @@ body {
             display: table;
             border-bottom: solid 1px #eee;
             width: 90%;
-            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+            transition: background 0.3s cubic-bezier(.25,.8,.25,1);
 
             .name  {
                 float: left;
@@ -81,11 +81,24 @@ body {
             float: left;
             margin: 10px;
             width: 10%;
+            max-width: 10%;
+            word-wrap: break-word;
             padding: 10px;
             border-radius: 3px;
             cursor: pointer;
             text-align: center;
+            height: 100px;
+            display: table;
+            overflow: hidden;
 
+            .name {
+                display: table-footer-group;
+            }
+
+            .icon i{
+                font-size: 64px !important;
+            }
+            
             .size {
                 display:none;
             }
