@@ -54,7 +54,11 @@ body {
         overflow-y: auto;
         height: calc(100% - 60px);
         width: 100%;
-
+        .fileItem {
+            .name {
+                text-overflow: ellipsis;
+            }
+        }
         .fileItem.headline {
             padding: 10px 5%;
             border-radius: 3px;
