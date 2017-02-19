@@ -81,7 +81,8 @@ class Explorer {
             fileString += '</div>';
 
             if(!fileItem.IsDir) {
-                fileString += '<div class="size">'+fileItem.Size+'</div>';
+                let sizeString = this.formatSizeUnits(fileItem.Size);
+                fileString += '<div class="size">'+sizeString+'</div>';
             }
 
 
@@ -115,6 +116,29 @@ class Explorer {
      */
     updateDirPath() {
         this.currentDirElement.innerHTML = '~/' + this.currentDir;
+    }
+
+
+    /**
+     * Method to convert bytes to stringify
+     * @param {Number} bytes
+     * @return {String} - Bytes converted to kb,mb,gbs
+     */
+    formatSizeUnits(bytes) {
+        if ( bytes>=1000000000 ) {
+            bytes=(bytes/1000000000).toFixed(2)+' GB';
+        } else if (bytes>=1000000) {
+            bytes=(bytes/1000000).toFixed(2)+' MB';
+        } else if (bytes>=1000) {
+            bytes=(bytes/1000).toFixed(2)+' KB';
+        } else if (bytes>1) {
+            bytes=bytes+' bytes';
+        } else if (bytes==1) {
+            bytes=bytes+' byte';
+        }else {
+            bytes='0 byte';
+        }
+        return bytes;
     }
 }
 
