@@ -55,7 +55,7 @@ body {
         height: calc(100% - 60px);
         width: 100%;
 
-        .fileItem {
+        .fileItem.headline {
             padding: 10px 5%;
             border-radius: 3px;
             cursor: pointer;
@@ -74,6 +74,20 @@ body {
             .name, .size {
                 margin-top: 5px;
                 margin-right: 10px;
+            }
+        }
+
+        .fileItem.module {
+            float: left;
+            margin: 10px;
+            width: 10%;
+            padding: 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            text-align: center;
+
+            .size {
+                display:none;
             }
         }
 

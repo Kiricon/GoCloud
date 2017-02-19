@@ -87,7 +87,7 @@ class Explorer {
 
 
 
-            item.className = 'fileItem';
+            item.className = 'fileItem headline';
             item.innerHTML = fileString;
             if(fileItem.IsDir) {
                 item.addEventListener('click', () => {
