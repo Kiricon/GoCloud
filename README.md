@@ -11,3 +11,9 @@ than one written in GO.
 So writing a file explorer in go means my NAS will be more responsive.
 
 
+So why Go specifically? Well it's because in most cases you have to make a choice between easy web development and high performance. 
+
+Golang hits that sweat spot. You'll find that the actual server side code is actually extremely small and extremely performant.
+And best of all, HAS NO DEPENDENCIES.
+
+
