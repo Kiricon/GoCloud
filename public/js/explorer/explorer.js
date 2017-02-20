@@ -89,6 +89,10 @@ class Explorer {
                 item.addEventListener('click', () => {
                     self.goDownDirectory(fileItem.Name);
                 });
+            }else {
+                item.addEventListener('click', () => {
+                    self.goToFile(fileItem);
+                });
             }
             this.directoryElement.appendChild(item);
         }
@@ -160,6 +164,15 @@ class Explorer {
             bytes='0 byte';
         }
         return bytes;
+    }
+
+
+    /**
+     * Change the current url path to the file url
+     * @param {FileItem} fileItem - File item to go to.
+     */
+    goToFile(fileItem) {
+        window.location.href= '/files/'+this.currentDir+fileItem.Name;
     }
 }
 
